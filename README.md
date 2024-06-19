@@ -1,60 +1,53 @@
-# MERN Stack Template
+# Warehouse
 
-<img src='https://github.com/belferink1996/MERN-template/blob/images/images/mern.jpeg' alt='MERN banner' width='700' />
+### STEP 1: Clone repo
 
-- **M** = [MongoDB](https://www.mongodb.com)
-- **E** = [Express.js](https://expressjs.com)
-- **R** = [React.js](https://reactjs.org)
-- **N** = [Node.js](https://nodejs.org)
-
-<br />
-<br />
-
-# What is this template?
-
-This template allows you to quick-start your Fullstack application using the MERN stack, it has a server setup with some basic authentication, and a client ready to communicate with the backend.<br />
-I have attempted to use the best practices for both ends, which should make it easy for any advanced/new developer to use, and perhaps learn from.
-
-<img src='https://github.com/belferink1996/MERN-template/blob/images/images/Screen%20Shot%202021-09-29%20at%2011.08.23.png' width='700' />
-
-<br />
-<br />
-
-# How to use this template
-
-[📀 Demo video](https://youtu.be/N2pvvkyoS68)
-
-### STEP 1:
-
-Click ["Use this template"](https://github.com/benelferink/MERN-template/generate) to generate a
-new repository.<br />
-Then open your terminal and clone your repository:
-
-> cd ~/Desktop <br />
-> git clone https://github.com/[your-user-name]/[your-repo-name].git
+> git clone https://github.com/[marten-sova]/[warehouse].git
 
 <br />
 
-### STEP 2:
+### STEP 2: Install dependencies
 
 Go to the root of your repository's folder, and install all dependecies:
 
-> cd ~/Desktop/[your-repo-name]<br />
+> cd ~/warehouse<br />
 > npm install
 
 <br />
 
-### STEP 3:
+### STEP 3: Set up MongoDB
 
-Prepare your MongoDB database ([atlas](https://www.mongodb.com/cloud/atlas),
-[community](<https://github.com/benelferink/MERN-template/wiki/Install-MongoDB-Community-Server-(MacOS)>)).<br />
-Then configure your database within `server/constants/index.js`, by configuring the `MONGO_URI` variable.
+  #### 3.1: Install Command line tools
 
-<br />
+    open terminal
+    `sudo rm -rf /Library/Developer/CommandLineTools`
+    `sudo xcode-select --install`
 
-### STEP 4: CODE !!!
+  #### 3.2: Install homebrew
 
-<br />
+  ([https://brew.sh](<https://brew.sh>))
+
+  #### 3.3: Install MongoDB (community)
+
+
+    open terminal
+    `brew tap mongodb/brew`
+    `brew install mongodb-community`
+
+  #### 3.4: Start MongoDB service
+
+     `brew services start mongodb-community` starts service
+      `brew services stop mongodb-community` stops service
+
+  #### 3.5: Open MongoDB shell
+
+    `mongosh`
+    Note the address and port displayed after "Connecting to: mongodb://..."
+    By default, `mongodb://localhost:27017/`
+
+
+If it isn't the default location, configure your database within `server/constants/index.js`, by configuring the `MONGO_URI` variable to the location observed in the previous step.
+
 <br />
 
 ### To run the client and/or the server, you can do any of the following:
