@@ -1,6 +1,17 @@
 const joi = require("joi");
 const Warehouse = require("../../models/Warehouse");
 
+const uniqueShelfNamesAcrossWarehouse = (zones, helpers) => {
+  const shelfNames = zones.flatMap((zone) =>
+    zone.shelves.map((shelf) => shelf.name)
+  );
+  const uniqueShelfNames = new Set(shelfNames);
+  if (shelfNames.length !== uniqueShelfNames.size) {
+    return helpers.message("Each shelf name must be unique (per warehouse)");
+  }
+  return zones;
+};
+
 async function create(request, response, next) {
   try {
     // Validate request data
@@ -25,7 +36,8 @@ async function create(request, response, next) {
                   ),
               })
               .required()
-          ),
+          )
+          .custom(uniqueShelfNamesAcrossWarehouse),
       })
       .validateAsync(request.body);
   } catch (error) {
