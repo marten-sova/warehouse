@@ -10,6 +10,7 @@ async function create(request, response, next) {
         zones: joi
           .array()
           .max(12)
+          .min(12)
           .items(
             joi
               .object({
@@ -42,7 +43,7 @@ async function create(request, response, next) {
     if (existingWarehouse) {
       return response.status(400).json({
         error: name,
-        message: 'A warehouse already exists with that "name"',
+        message: "A warehouse already exists with that name",
       });
     }
 
