@@ -6,6 +6,9 @@ const WarehouseForm = () => {
   const [zones, setZones] = useState(
     Array.from({ length: 12 }, () => ({ zoneNumber: "", shelves: [] }))
   );
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
 
   const handleWarehouseNameChange = (e) => {
     setWarehouseName(e.target.value);
@@ -33,6 +36,9 @@ const WarehouseForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError(null);
+    setSuccess(false);
 
     const newWarehouse = {
       name: warehouseName,
@@ -47,9 +53,15 @@ const WarehouseForm = () => {
     console.log("Submitting new warehouse:", newWarehouse);
     try {
       const response = await axios.post("/warehouse/create", newWarehouse);
+      setSuccess(true);
+      setWarehouseName("");
+      setZones(Array.from({ length: 12 }, () => ({ shelves: [] })));
       console.log("Response:", response.data);
     } catch (err) {
+      setError(err.response?.data?.message || "An error occurred");
       console.error("Error submitting warehouse:", err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -97,8 +109,14 @@ const WarehouseForm = () => {
               ))}
             </div>
           ))}
-          <button type="submit">Submit Warehouse</button>
+          <button type="submit" disabled={loading}>
+            {loading ? "Submitting..." : "Submit Warehouse"}
+          </button>
+          {error && <p style={{ color: "red" }}>{error}</p>}
         </>
+      )}
+      {success && (
+        <p style={{ color: "green" }}>Warehouse submitted successfully!</p>
       )}
     </form>
   );
