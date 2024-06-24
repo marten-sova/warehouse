@@ -1,5 +1,5 @@
 {
-  "homepage": "https://github.com/belferink1996/MERN-template#readme",
+  "homepage": "https://github.com/marten-sova/warehouse#readme",
   "name": "mern-application",
   "version": "0.1.0",
   "description": "",
@@ -7,21 +7,22 @@
   "main": "",
   "license": "ISC",
   "keywords": [],
-  "author": "Ben Elferink <ben.elferink@icloud.com> (https://www.linkedin.com/in/ben-elferink-37ba251b9)",
+  "author": "Marten Sova <martensova@gmail.com> (https://www.linkedin.com/in/martensova)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/belferink1996/MERN-template.git"
-  },
-  "bugs": {
-    "url": "https://github.com/belferink1996/MERN-template/issues",
-    "email": "ben.elferink@icloud.com"
+    "url": "https://github.com/marten-sova/warehouse.git"
   },
   "scripts": {
     "install": "concurrently \"cd ./server && npm i\" \"cd ./client && npm i\"",
     "start": "concurrently \"cd ./server && npm start\" \"cd ./client && npm start\"",
+    "test": "jest",
     "delete-modules": "rm -r ./node_modules && cd ./server && rm -r ./node_modules && cd ../client && rm -r ./node_modules"
   },
   "devDependencies": {
-    "concurrently": "^6.3.0"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@shelf/jest-mongodb": "^4.3.2",
+    "concurrently": "^6.3.0",
+    "jest": "^29.7.0",
+    "node-mocks-http": "^1.15.0"
   }
 }
