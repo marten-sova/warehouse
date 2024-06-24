@@ -9,7 +9,6 @@ export default function WarehouseList() {
     try {
       axios.get("/warehouse/list").then(({ data }) => {
         setData(data.data);
-        console.log(data.data);
       });
     } catch (error) {
       console.error(error);

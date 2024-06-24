@@ -9,9 +9,6 @@ export default function App() {
   return (
     <div className="App">
       <Header />
-      {/* {isLoggedIn
-        ? "You are logged in."
-        : "You are not logged in. It doesn't matter for this demo."} */}
       <h2>Create a New Warehouse</h2>
       <WarehouseForm />
       <ColoredLine color="lightgrey" />

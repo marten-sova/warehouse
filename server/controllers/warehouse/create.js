@@ -58,7 +58,6 @@ async function create(request, response, next) {
         message: "A warehouse already exists with that name",
       });
     }
-
     // Create warehouse
     const newWarehouse = new Warehouse({ name, zones });
     await newWarehouse.save();

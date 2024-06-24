@@ -69,7 +69,7 @@ export default function Header() {
           ) : (
             <Fragment>
               <ListItemButton onClick={clickLogin}>Login</ListItemButton>
-              <ListItemButton onClick={clickRegister}>Reigster</ListItemButton>
+              <ListItemButton onClick={clickRegister}>Register</ListItemButton>
             </Fragment>
           )}
         </List>
