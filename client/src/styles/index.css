@@ -4,12 +4,11 @@
 }
 
 body {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-size: 16px;
 }
 
 .App {
-  width: 100vw;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,7 +34,7 @@ body {
 }
 
 /*
-  Extra Small Devices, Phones 
+  Extra Small Devices, Phones
   @media only screen and (min-width: 480px) {}
 */
 
